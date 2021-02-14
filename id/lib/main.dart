@@ -92,7 +92,7 @@ class _ID_CardState extends State<ID_Card> {
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  'lutsch@mein.schwanz',
+                  'fizzbuss@fizz.buzz',
                   style: TextStyle(
                     color: Colors.grey[400],
                     fontSize: 18.0,
