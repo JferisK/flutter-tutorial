@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-  home: ID_Card(),
-));
+      home: ID_Card(),
+    ));
 
 class ID_Card extends StatefulWidget {
   @override
@@ -11,7 +11,6 @@ class ID_Card extends StatefulWidget {
 }
 
 class _ID_CardState extends State<ID_Card> {
-
   int adminrang = 0;
 
   @override
@@ -26,8 +25,9 @@ class _ID_CardState extends State<ID_Card> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            if(adminrang < 5){
-              adminrang++;}
+            if (adminrang < 5) {
+              adminrang++;
+            }
           });
         },
         child: Icon(Icons.add),
@@ -40,13 +40,14 @@ class _ID_CardState extends State<ID_Card> {
           children: <Widget>[
             Center(
               child: CircleAvatar(
-                backgroundImage: NetworkImage('https://forum.vio-v.com/avatarPicture.php?user=feris'),
+                backgroundImage: NetworkImage(
+                    'https://forum.vio-v.com/avatarPicture.php?user=feris'),
                 radius: 50.0,
               ),
             ),
             Divider(
-                height: 60.0,
-                color: Colors.grey[800],
+              height: 60.0,
+              color: Colors.grey[800],
             ),
             Text(
               'NAME',
@@ -107,4 +108,3 @@ class _ID_CardState extends State<ID_Card> {
     );
   }
 }
-
