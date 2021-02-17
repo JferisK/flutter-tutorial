@@ -14,18 +14,64 @@ class _HomeState extends State<Home> {
 
     data = ModalRoute.of(context).settings.arguments;
 
+    String bgImage = data['isDay'] ? 'day.png' : 'night.png';
+    Color bgColor = data['isDay'] ? Colors.blue : Colors.indigo[700];
+    Color fontColor = data['isDay'] ? Colors.black : Colors.grey[300];
+
     return Scaffold(
+      backgroundColor: bgColor,
       body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              FlatButton.icon(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/location');
-                  },
-                  icon: Icon(Icons.edit_location),
-                  label: Text('Edit Location'),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/' + bgImage),
+                fit: BoxFit.cover,
               ),
-            ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+              child: Column(
+                children: <Widget>[
+                  FlatButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/location');
+                      },
+                      icon: Icon(
+                        Icons.edit_location,
+                        color: fontColor
+                      ),
+                      label: Text(
+                        'Edit Location',
+                        style: TextStyle(
+                        color: fontColor,
+                      ),
+                      ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        data['location'],
+                        style: TextStyle(
+                          fontSize: 28,
+                          letterSpacing: 2,
+                          color: fontColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    data['time'],
+                    style: TextStyle(
+                      fontSize: 66,
+                      color: fontColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
       ),
     );
